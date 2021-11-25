@@ -1,0 +1,38 @@
+[package]
+name = "entwine"
+description = "Generic slice-like interface for operating on multiple slices at the same time"
+authors = [
+    "Chitose Yuuzaki <chitoyuu@potatoes.gay>",
+    "The Rust Project Developers",
+]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/chitoyuu/entwine"
+documentation = "https://docs.rs/entwine"
+version = "0.1.0"
+edition = "2021"
+readme = "README.md"
+keywords = ["sort", "no_std"]
+categories = ["rust-patterns", "algorithms"]
+
+[package.metadata.docs.rs]
+features = ["nightly"]
+
+[dependencies]
+paste = "1.0.6"
+
+[dev-dependencies]
+criterion = "0.3"
+rand = "0.8.4"
+
+[[bench]]
+name = "bench"
+harness = false
+
+[features]
+default = ["std"]
+std = []
+nightly = []
+extended_random_tests = []
+
+[profile.bench]
+lto = "thin"
